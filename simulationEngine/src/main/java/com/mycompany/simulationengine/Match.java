@@ -10,8 +10,8 @@ package com.mycompany.simulationengine;
  * @author Brahian Vera
  */
 public class Match {
-    StringBuilder score = new StringBuilder();
-    String[] matchLog = new String[18];
+    String score = new String();
+    StringBuilder matchLog = new StringBuilder();
     int homesTeamNumGol = 0;
     int awaysTeamNumGol = 0;
     public Match(Team homeTeam,Team awayTeam){
@@ -31,14 +31,11 @@ public class Match {
     }
     
     public void setScore(Team teamHome, int homeSTeamGol, Team teamAway, int awaysTeamGol){
-        this.score.replace(0,this.score.length(),teamAway.abbrevitedName+" "+homeSTeamGol+" - "+awaysTeamGol+" "+teamHome.abbrevitedName);
+        this.score = teamAway.abbrevitedName+" "+awaysTeamGol+" - "+homeSTeamGol+" "+teamHome.abbrevitedName;
         
     }
     
     public void setMacthLog(int minute,String team, int percent, Boolean gool ){
-        int lessPosition = 1;
-        int positionMatchLog = minute / SimulationEngine.INTERVALS;
-        positionMatchLog = positionMatchLog - lessPosition;
-        matchLog[positionMatchLog] = Integer.toString(minute)+"||"+team+"||"+percent+"||"+"Gol:"+gool;
+        matchLog.append(Integer.toString(minute)+" - "+team+" - "+percent+" - "+"Gol:"+gool+" \n");
     } 
 }

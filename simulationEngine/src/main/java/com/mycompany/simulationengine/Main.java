@@ -25,11 +25,9 @@ public class Main {
         Match match = simulationEngine.simulateMatch(homeTeam,awayTeam);
         
         System.out.println("|||| Marcador ||||");
-        System.out.println(match.score.toString());
+        System.out.println(match.score);
         
         System.out.println("||| Log del partido ||||");
-        for (String matchLog : match.matchLog) {
-            System.out.println(matchLog);
-        }
+        System.out.println(match.matchLog.toString());
     }
 }

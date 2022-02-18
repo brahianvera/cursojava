@@ -13,15 +13,16 @@ public class SimulationEngine {
     static final int ATTACK_PERCENT = 5;
     static final int DEFENDER_PERCENT = 5;
     static final int INTERVALS = 5;
-    
+    private String turnAttac  = "homeTeam";
     int[] probabilityBarHomeTeam = new int[2];
     int[] probabilityBarAwayTeam = new int[2];
     
+    
     public void generateProbabilityBars(Team teamHome, Team teamAway){
-        int teamHomeDefenderPercent = teamHome.defenderNumbers *  SimulationEngine.DEFENDER_PERCENT;
-        int teamAwayDefenderPercent = teamAway.defenderNumbers * SimulationEngine.DEFENDER_PERCENT;
-        int teamHomeAttackPercent =  teamHome.forwardsNumbers * SimulationEngine.ATTACK_PERCENT;
-        int teamAwayAttackPercent = teamAway.forwardsNumbers * SimulationEngine.ATTACK_PERCENT;
+        int teamHomeDefenderPercent = teamHome.defenderNumbers *  DEFENDER_PERCENT;
+        int teamAwayDefenderPercent = teamAway.defenderNumbers * DEFENDER_PERCENT;
+        int teamHomeAttackPercent =  teamHome.forwardsNumbers * ATTACK_PERCENT;
+        int teamAwayAttackPercent = teamAway.forwardsNumbers * ATTACK_PERCENT;
         probabilityBarHomeTeam[0] = teamAwayDefenderPercent;
         probabilityBarHomeTeam[1] = teamHomeAttackPercent;
         probabilityBarAwayTeam[0] = teamHomeDefenderPercent;
@@ -34,51 +35,45 @@ public class SimulationEngine {
         int time = 90;
         String whoAttack;
         int golProbability;
-        Boolean Gool;
-        String whoAttackName;
-        String whoAttackAbreviateName;
-        int initTime = 5;
-        for(int currentTime = 0; currentTime < time; currentTime = currentTime+5){
-            whoAttack = whoAttack();
-            golProbability =  (int)(Math.random()*101);
-            Gool = this.resultMove(golProbability,whoAttack);
+        Boolean isGool;
+        String nameTeamToLog = "";
+        int delta = 5;
+        for(int currentTime = 0; currentTime < time; currentTime+=delta){
+            golProbability =  (int)((Math.random()*100)+1);
+            whoAttack = this.whoAttack();
+            isGool = this.resultMove(golProbability,whoAttack);
             if(whoAttack == "homeTeam"){
-                whoAttackName = homeTeam.nameTeam;
-                whoAttackAbreviateName = homeTeam.abbrevitedName;
+                nameTeamToLog = "Complete Name: "+homeTeam.nameTeam+" ABREVIATE NAME: "+homeTeam.abbrevitedName;
             }else{
-                whoAttackName = awayTeam.nameTeam;
-                whoAttackAbreviateName = homeTeam.abbrevitedName;
+                nameTeamToLog = "Complete Name: "+awayTeam.nameTeam+" ABREVIATE NAME: "+awayTeam.abbrevitedName;
             }
-           String nameTeamToLog = "Complete Name: "+whoAttackName+" ABREVIATE NAME: "+whoAttackAbreviateName;
-           match.setMacthLog(currentTime+initTime, nameTeamToLog, golProbability, Gool);
-           match.addGol(whoAttack,Gool,homeTeam,awayTeam);
+           match.setMacthLog(currentTime+delta, nameTeamToLog, golProbability, isGool);
+           match.addGol(whoAttack,isGool,homeTeam,awayTeam);
            
         }
         return match;
     }
     
-   
-    public Boolean resultMove(int percentAttack, String whoAttack){
-  
+      public Boolean resultMove(int percentAttack, String whoAttack){
         if(whoAttack == "awayTeam"){
-            return Gool(percentAttack, this.probabilityBarAwayTeam);
+            return isGool(percentAttack, this.probabilityBarAwayTeam);
         }else{
-            return Gool(percentAttack, this.probabilityBarHomeTeam);
+            return isGool(percentAttack, this.probabilityBarHomeTeam);
         }   
     }
     
-    public Boolean Gool(int percentAttack ,int [] probabilityBarTeam){
+    public Boolean isGool(int percentAttack ,int [] probabilityBarTeam){
         int defenderPercent = 0;
         int attackPercent = 1;
         return probabilityBarTeam[defenderPercent] > percentAttack && percentAttack <= probabilityBarTeam[attackPercent];
     }
     
-    public String whoAttack(){
-        int whoAttack =  (int)(Math.random()*2);
-        int homeTeam = 0;
-        if(whoAttack == homeTeam){
+    private String whoAttack(){
+        if(this.turnAttac == "homeTeam"){
+            this.turnAttac = "awayTeam";
             return "homeTeam";
         }else{
+            this.turnAttac = "homeTeam";
             return "awayTeam";
         }
     }
