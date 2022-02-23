@@ -15,19 +15,19 @@ public class Main {
         Team homeTeam = new Team("Barcelona", "BCN");
         Team awayTeam = new Team("Real Madrid", "RM");
         if(!homeTeam.setFormation(4, 3, 3)){
-            System.out.println(homeTeam.nameTeam+": Formacion invalida - partido cancelado");
+            System.out.println(homeTeam.getNameTeam()+": Formacion invalida - partido cancelado");
             return;
         } else if(!awayTeam.setFormation(4, 4, 2)){
-            System.out.println(homeTeam.nameTeam+": Formacion invalida - partido cancelado");
+            System.out.println(homeTeam.getNameTeam()+": Formacion invalida - partido cancelado");
             return;
         }
-        SimulationEngine simulationEngine = new SimulationEngine();
+        SimulationEngine simulationEngine = new SimulationEngine(homeTeam,awayTeam);
         Match match = simulationEngine.simulateMatch(homeTeam,awayTeam);
         
         System.out.println("|||| Marcador ||||");
-        System.out.println(match.score);
+        System.out.println(match.getScore());
         
         System.out.println("||| Log del partido ||||");
-        System.out.println(match.matchLog.toString());
+        System.out.println(match.getmatchLog().toString());
     }
 }

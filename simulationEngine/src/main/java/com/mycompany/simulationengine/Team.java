@@ -10,11 +10,11 @@ package com.mycompany.simulationengine;
  * @author Brahian Vera
  */
 public class Team {
-    public int forwardsNumbers;
-    public int defenderNumbers;
-    public int midFielderNumbers;
-    public String nameTeam = "";
-    public String abbrevitedName = "";
+    private int forwardsNumbers;
+    private int defenderNumbers;
+    private int midFielderNumbers;
+    private String nameTeam = "";
+    private String abbrevitedName = "";
     
     public Team(String nameTeam, String abbrevitedName){
         this.nameTeam  = nameTeam;
@@ -36,7 +36,7 @@ public class Team {
         return validFormation;
     }
     
-    public Boolean validateFormation(int forwardsNumbers, int defenderNumbers, int midFielderNumbers){
+    private Boolean validateFormation(int forwardsNumbers, int defenderNumbers, int midFielderNumbers){
         Boolean validFormation = true;
         int goalkeeper = 1;
         if(midFielderNumbers < 2 ){
@@ -47,5 +47,22 @@ public class Team {
             validFormation = false;
         }
         return validFormation;
+    }
+    
+    public String getNameTeam(){
+        return this.nameTeam;
+    }
+    
+   
+    public String getAbbrevitedName(){
+        return this.abbrevitedName;
+    }
+    
+    public int getDefendersNumbers(){
+        return this.defenderNumbers;
+    }
+    
+    public int getForwardsNumbers(){
+        return this.forwardsNumbers;
     }
 }

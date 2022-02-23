@@ -5,15 +5,20 @@
  */
 package com.mycompany.simulationengine;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
 /**
  *
  * @author Brahian Vera
  */
 public class Match {
-    String score = new String();
-    StringBuilder matchLog = new StringBuilder();
-    int homesTeamNumGol = 0;
-    int awaysTeamNumGol = 0;
+    private String score = new String();
+    private StringBuilder matchLog = new StringBuilder();
+    private int homesTeamNumGol = 0;
+    private int awaysTeamNumGol = 0;
+    
     public Match(Team homeTeam,Team awayTeam){
         this.setScore(homeTeam,this.homesTeamNumGol,awayTeam, this.awaysTeamNumGol);
     }
@@ -31,11 +36,21 @@ public class Match {
     }
     
     public void setScore(Team teamHome, int homeSTeamGol, Team teamAway, int awaysTeamGol){
-        this.score = teamAway.abbrevitedName+" "+awaysTeamGol+" - "+homeSTeamGol+" "+teamHome.abbrevitedName;
+        this.score = teamAway.getAbbrevitedName()+" "+awaysTeamGol+" - "+homeSTeamGol+" "+teamHome.getAbbrevitedName();
         
     }
     
-    public void setMacthLog(int minute,String team, int percent, Boolean gool ){
-        matchLog.append(Integer.toString(minute)+" - "+team+" - "+percent+" - "+"Gol:"+gool+" \n");
+    public void setMacthLog(int minute,String team, int percent, Boolean gool){
+        LocalDateTime today = LocalDateTime.now();
+        
+        matchLog.append(today.format(DateTimeFormatter.ISO_LOCAL_DATE)+" - "+today.truncatedTo(ChronoUnit.SECONDS).format(DateTimeFormatter.ISO_LOCAL_TIME)+" - "+Integer.toString(minute)+" - "+team+" - "+percent+" - "+"Gol:"+gool+" \n");
     } 
+    
+    public String getScore(){
+        return this.score;
+    }
+    
+    public StringBuilder getmatchLog(){
+        return this.matchLog;
+    }
 }

@@ -11,7 +11,5 @@ package com.mycompany.simulationengine;
  */
 public class test {
     
-    public static void Main(String[] args){
-        System.out.println("com.mycompany.simulationengine.test.Main()");
-    }
+
 }
