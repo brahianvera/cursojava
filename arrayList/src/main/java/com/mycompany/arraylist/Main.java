@@ -15,6 +15,7 @@ public class Main {
     
     public static void main(String[] args){
         ArrayList<Integer> nums = new ArrayList();
+        ArrayList<Integer> usedPosition = new ArrayList();
         Integer evenNumBackup =  0;
         nums.add(1);
         nums.add(3);
@@ -30,7 +31,9 @@ public class Main {
             }
             for(int posOdd = posEven; posOdd < nums.size(); posOdd++){
                 evenNumBackup = nums.get(posEven);
-                if(!(nums.get(posOdd) %2 == 0)){
+                Boolean changedPositionNumberEven = usedPosition.indexOf(posEven) == -1;
+                if(!(nums.get(posOdd) %2 == 0) && changedPositionNumberEven ){
+                    usedPosition.add(posOdd);
                     nums.set(posEven,nums.get(posOdd));
                     nums.set(posOdd,evenNumBackup);
                     break;
