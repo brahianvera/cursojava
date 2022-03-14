@@ -40,6 +40,7 @@ public class WaysToRead {
                 this.readFordward(fil);
             }
         }
+        System.out.println("");
     }
     
     public void readZ(){

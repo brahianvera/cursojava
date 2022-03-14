@@ -45,7 +45,16 @@ public class Main {
        
         WaysToRead waysToRead = new WaysToRead(matriz, tam);
         
-        waysToRead.readN();
+        if(opc == 1){
+            waysToRead.readVertical();
+        }else if(opc == 2){
+            waysToRead.readHorizontal();
+        }else if(opc == 3){
+            waysToRead.readZ();
+        }else if(opc == 4){
+            waysToRead.readN();
+        }
+        
         
     }
 }
