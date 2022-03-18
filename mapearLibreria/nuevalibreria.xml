@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<libreria>
+    <nombre>LAS AVENTURAS DE BOGOTA</nombre>
+    <libros>
+        <libro isbn="2345">
+            <genero tema="Aventura">
+                <titulo>EL senor de los anillos</titulo>
+                <autor>J.R.R Tolkien</autor>
+            </genero>
+        </libro>
+        <libro isbn="7892">
+            <genero tema="Terror">
+                <titulo>EL aro</titulo>
+                <autor>Juan de lorca</autor>
+            </genero>
+        </libro>
+        <libro isbn="4352">
+            <genero tema="Ficcion">
+                <titulo>Star Wars episodio 6: El imperio atacara</titulo>
+                <autor>Jorge Lucas</autor>
+            </genero>
+        </libro>
+        <libro isbn="3525">
+            <genero tema="Ficcion">
+                <titulo>Star Wars episodio 7: EL retorno del jedi</titulo>
+                <autor>Jorge Lucas</autor>
+            </genero>
+        </libro>
+        <libro isbn="7892">
+            <genero tema="Apocalipsis">
+                <titulo>Los juegos del hambre</titulo>
+                <autor>Leydi gamboa</autor>
+            </genero>
+        </libro>
+    </libros>
+</libreria>

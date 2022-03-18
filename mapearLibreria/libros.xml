@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria>
+    <nombre>Libros El Buen Lector</nombre>
+    <libros>
+        <libro isbn="123">
+            <genero tema="drama">
+                <titulo>The Godfather</titulo>
+                <autor>Mario Puzo</autor>
+            </genero>
+        </libro>
+        <libro isbn="234">
+            <genero tema="terror">
+                <titulo>The Exorcist</titulo>
+                <autor>William Peter Blatty</autor>
+            </genero>
+        </libro>
+        <libro isbn="345">
+            <genero tema="sci-fi">
+                <titulo>2001, a space oddisey</titulo>
+                <autor>Arthur C Clarke</autor>
+            </genero>
+        </libro>
+        <libro isbn="456">
+            <genero tema="terror">
+                <titulo>The Shinning</titulo>
+                <autor>Stephen King</autor>
+            </genero>
+        </libro>
+    </libros>
+</libreria>
