@@ -16,7 +16,12 @@ public class main {
     public static void main(String[] args) {
         EligiblePerson eTester = new DriverEligibilityTester();
         List<Person> pl = Person.createShortList();
-        robocallEligible(eTester,pl);
+        robocallEligible(new EligiblePerson(){ 
+            public boolean isEligigle(Person p) {
+                return p.getAge() >= 16;
+            } 
+        },
+        pl);
     }
      public static void robocallEligible(EligiblePerson tester, List<Person> pl){
         for(Person p: pl){
