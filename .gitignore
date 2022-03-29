@@ -36,3 +36,5 @@ mapear2/src/main/java/com/mycompany/mapear2/MainMapearDos.java
 /ConnecDB/target/
 /ConnecDb2/nbproject/private/
 /ConnecDb2/build/
+ConnecDb2/nbproject/genfiles.properties
+ConnecDb2/nbproject/project.properties
