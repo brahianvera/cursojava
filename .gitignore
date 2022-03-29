@@ -33,3 +33,6 @@ mapear2/src/main/java/com/mycompany/mapear2/Disqueria.java
 mapear2/src/main/java/com/mycompany/mapear2/Main.java
 mapear2/src/main/java/com/mycompany/mapear2/MainMapearDos.java
 /testLambda/target/
+/ConnecDB/target/
+/ConnecDb2/nbproject/private/
+/ConnecDb2/build/
