@@ -5,16 +5,11 @@
  */
 package com.mycompany.testlambda;
 
-import java.util.List;
-
 /**
  *
  * @author Brahian Vera
+ * @param <T>
  */
-public class DriverEligibilityTester implements EligiblePerson {
-
-    @Override
-    public boolean isEligigle(Person p) {
-       return p.getAge() >= 16;
-    } 
+public interface Predicate<T>{
+    public boolean test(T t);
 }

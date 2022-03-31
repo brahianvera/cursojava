@@ -183,7 +183,7 @@ public class Person {
             .age(15)
             .gender(Gender.MALE)
             .email("bob.baker@example.com")
-            .phoneNumber("201-121-4678")
+            .phoneNumber("601-121-4678")
             .address("44 4th St")
             .city("Smallville")
             .state("KS")
@@ -280,8 +280,6 @@ public class Person {
             .code("222333")
             .build()
     );
-    
-    
     return people;
   }
   
