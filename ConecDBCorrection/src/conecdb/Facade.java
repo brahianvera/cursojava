@@ -31,4 +31,9 @@ public class Facade {
         BandaDao bd = new BandaDao();
         return bd.updateBanda(idbanda, nombanda);
     }
+    
+    public String procesoDelete(int idbanda){
+        BandaDao bd = new BandaDao();
+        return  bd.deleteBanda(idbanda);
+    }
 }

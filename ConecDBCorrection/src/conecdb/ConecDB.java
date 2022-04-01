@@ -27,7 +27,8 @@ public class ConecDB {
        Facade fac = new Facade();
        iniciarProceso(fac);
        //procesoInsertar();
-       procesoActualizar();
+       //procesoActualizar();
+       procesoDelete();
     }
     
     private static void iniciarProceso(Facade f){
@@ -57,6 +58,14 @@ public class ConecDB {
         String nameBanda = x.nextLine();
         Facade fac = new Facade();
         System.out.println(fac.actualizarBanda(idbanda, nameBanda));
+    }
+    
+    private static void procesoDelete(){
+        Scanner x = new Scanner(System.in);
+        System.out.println("id de la banda a eliminar");
+        int idbanda = Integer.parseInt(x.nextLine());
+        Facade fac = new Facade();
+        System.out.println(fac.procesoDelete(idbanda));
     }
     
 }

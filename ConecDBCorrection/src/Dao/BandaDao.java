@@ -69,7 +69,7 @@ public class BandaDao {
        return message;
    }
    
-   public String updateBanda(int idBanda,String Name){
+    public String updateBanda(int idBanda,String Name){
        String message = null;
        String sql = "update banda set nombanda=? where idbanda=?";
         try(Connection con = Conexion.getConexion();
@@ -87,6 +87,23 @@ public class BandaDao {
            ex.printStackTrace();
         }
        return message;
-   }
+    }
+    
+    public String deleteBanda(int idbanda){
+        String message = null;
+        String sql =  "Delete from banda where idbanda=?";
+        try(Connection con =  Conexion.getConexion();
+            PreparedStatement ps  = con.prepareStatement(sql)){
+            ps.setInt(1, idbanda);
+            if(ps.executeUpdate() > 0){
+                message = "Banda eliminada";
+            }else{
+                message = "Banda sin eliminar";
+            }    
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return message;
+    }
 
 }
