@@ -10,5 +10,5 @@ package com.mycompany.testlambda;
  * @author Brahian Vera
  */
 public interface EligiblePerson {
-    boolean isEligigle(Person p);
+   
 }

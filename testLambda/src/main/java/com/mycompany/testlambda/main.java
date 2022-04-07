@@ -14,7 +14,7 @@ import java.util.List;
 public class main {
     
     public static void main(String[] args) {
-        EligiblePerson eTester = new DriverEligibilityTester();
+        //EligiblePerson eTester = new DriverEligibilityTester();
         List<Person> pl = Person.createShortList();
         //Forma de llamar antes si una expresion Lambda 
         /*robocallEligible(new EligiblePerson(){ 

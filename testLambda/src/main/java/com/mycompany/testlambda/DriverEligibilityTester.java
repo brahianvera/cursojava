@@ -11,9 +11,8 @@ import java.util.List;
  *
  * @author Brahian Vera
  */
-public class DriverEligibilityTester implements EligiblePerson {
+public class DriverEligibilityTester  {
 
-    @Override
     public boolean isEligigle(Person p) {
        return p.getAge() >= 16;
     } 
